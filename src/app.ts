@@ -7,13 +7,13 @@ import { showListInConsole } from "./Functions/showListInConsole";
 import { handleError } from "./ErrorHandler/index";
 
 const path = "./arquivos/texto.md";
-// const isToCheck = true;
+const isToCheck = true;
 
 const run = async () => {
     try {
         if (fs.lstatSync(path).isFile()) {
             const list = await extractLinks(path);
-            showListInConsole(list, path, false);
+            showListInConsole(list, path, isToCheck);
 
         } else if (fs.lstatSync(path).isDirectory()) {
             console.log("Directory");
