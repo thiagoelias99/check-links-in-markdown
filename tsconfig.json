@@ -1,13 +1,12 @@
 {
     "compilerOptions": {
-        "target": "ES6",
         "rootDir": "./src",
         "outDir": "./build",
         "noEmitOnError": true,
         "noImplicitAny": true,
         "removeComments": true,
-        "allowSyntheticDefaultImports": true,
-        "moduleResolution": "nodenext"
+        "moduleResolution": "node",
+        "downlevelIteration": true
     },
     "exclude": [
         "./jest.config.ts",

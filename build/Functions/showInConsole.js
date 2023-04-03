@@ -7,24 +7,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { extractLinks } from "./Functions/extractLinks.js";
-import { showInConsole } from "./Functions/showInConsole.js";
-import { handleError } from "./ErrorHandler/index.js";
-import * as fs from "fs";
-const path = "./arquivos/texto.md";
-const isToCheck = true;
-const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        if (fs.lstatSync(path).isFile()) {
-            const list = yield extractLinks(path);
-            showInConsole(list, path, isToCheck);
+import chalk from "chalk";
+import { checkLinks } from "./checkLinks.js";
+export function showInConsole(list, file, check) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (check) {
+            console.log(chalk.green("Este texto está em verde!"));
+            if (typeof list === "object") {
+                console.log(yield checkLinks(list));
+            }
+            else {
+                console.log(list);
+            }
         }
-        else if (fs.lstatSync(path).isDirectory()) {
-            console.log("Directory");
+        else {
+            console.log(`File: ${file}`);
+            console.log(list);
         }
-    }
-    catch (error) {
-        handleError(error);
-    }
-});
-run();
+    });
+}

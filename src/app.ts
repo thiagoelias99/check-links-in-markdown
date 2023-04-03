@@ -1,7 +1,7 @@
-import * as fs from "fs";
 import { extractLinks } from "./Functions/extractLinks";
 import { showInConsole } from "./Functions/showInConsole";
 import { handleError } from "./ErrorHandler/index";
+import * as fs from "fs";
 
 const path = "./arquivos/texto.md";
 const isToCheck = true;
