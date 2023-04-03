@@ -1,10 +1,10 @@
 import { checkLinks } from "./checkLinks";
 
-export async function showListInConsole(list: string | object[], file: string, check: boolean) {
+export async function showInConsole(list: string | object[], file: string, check: boolean) {
     if (check) {
         if (typeof list === "object") {
-            console.log(await checkLinks(list));            
-        } else{
+            console.log(await checkLinks(list));
+        } else {
             console.log(list);
         }
     } else {

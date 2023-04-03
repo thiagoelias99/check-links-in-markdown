@@ -5,7 +5,9 @@
         "outDir": "./build",
         "noEmitOnError": true,
         "noImplicitAny": true,
-        "removeComments": true
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "nodenext"
     },
     "exclude": [
         "./jest.config.ts",
