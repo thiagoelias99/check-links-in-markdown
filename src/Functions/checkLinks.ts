@@ -1,19 +1,28 @@
 export async function checkLinks(arrLinks: object[]) {
-    const links = arrLinks.map((links) => Object.values(links).join());
-
     const checked = await Promise.all(
-        links.map(async (url) => {
+        arrLinks.map(async (element) => {
             try {
-                const response = await fetch(url);
-                return response.status;
+                const response = await fetch(Object.values(element)[0]);
+                return {
+                    [Object.keys(element)[0]]: {
+                        URL: Object.values(element)[0],
+                        responseCode: response.status
+                    }
+                };
             }
             catch (error) {
                 if (error.cause.code === "ENOTFOUND") {
-                    return (400);                    
+                    return {
+                        [Object.keys(element)[0]]: {
+                            URL: Object.values(element)[0],
+                            responseCode: 400
+                        }
+                    };
                 } else {
                     return error;
                 }
             }
-        }));
+        })
+    );
     return checked;
 }
