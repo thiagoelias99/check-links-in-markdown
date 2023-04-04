@@ -1,9 +1,9 @@
-// import chalk from "../../node_modules/chalk/source/index";
+import chalk = require("chalk");
 
-export function handleError(error: any) {
+export function handleError(error: any, path = "") {
     if (error.code === "ENOENT") {
-        console.log("O caminho especificado não foi encontrado");
+        console.log(chalk.bgRed.bold(`Specified path not found! "${path}"`));
     } else {
-        console.log(error);
+        console.log(chalk.red(error));
     }
 }
