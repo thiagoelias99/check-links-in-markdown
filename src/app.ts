@@ -5,7 +5,7 @@ import { showInConsole } from "./Functions/showInConsole";
 import { handleError } from "./ErrorHandler/index";
 
 const path = process.argv[2]; //Retrieves entered path in command line
-const isToCheck = process.argv[3] === "check";
+const isToCheck = process.argv[3] === "--check";
 
 run();
 
